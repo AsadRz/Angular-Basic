@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Task } from '../../Task';
-import { TASKS } from '../../mock-tasks';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -8,8 +9,29 @@ import { TASKS } from '../../mock-tasks';
   styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[] = TASKS;
-  constructor() {}
+  /**
+   * Three Variables to hold mock data from file using observables and from API call
+   */
+  mockTasks: Task[] = [];
+  mockTasksUsingObservable: Task[] = [];
+  realTasks: Task[] = [];
 
-  ngOnInit(): void {}
+  /**
+   *
+   * @param taskService Service used for getting the tasks Data
+   */
+  constructor(private taskService: TaskService) {}
+
+  /**
+   * Three functions from services called and saved in different variables
+   */
+  ngOnInit(): void {
+    this.mockTasks = this.taskService.getMockTasks();
+    this.taskService.getMockTaskUsingObservable().subscribe((mockTasks) => {
+      this.mockTasks = mockTasks;
+    });
+    this.taskService
+      .getRealTasks()
+      .subscribe((tasks) => (this.realTasks = tasks));
+  }
 }

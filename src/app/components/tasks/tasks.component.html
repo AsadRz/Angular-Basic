@@ -1,1 +1,6 @@
-<app-task-item *ngFor="let task of tasks" [task]="task"></app-task-item>
+<!-- <app-task-item *ngFor="let task of mockTasks" [task]="task"></app-task-item> -->
+<!-- <app-task-item
+  *ngFor="let task of mockTasksUsingObservable"
+  [task]="task"
+></app-task-item> -->
+<app-task-item *ngFor="let task of realTasks" [task]="task"></app-task-item>
