@@ -28,10 +28,18 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     this.mockTasks = this.taskService.getMockTasks();
     this.taskService.getMockTaskUsingObservable().subscribe((mockTasks) => {
-      this.mockTasks = mockTasks;
+      this.mockTasksUsingObservable = mockTasks;
     });
     this.taskService
       .getRealTasks()
       .subscribe((tasks) => (this.realTasks = tasks));
   }
+
+  deleteTask = (task: Task): void => {
+    this.taskService
+      .deleteRealTask(task)
+      .subscribe(
+        () => (this.realTasks = this.realTasks.filter((t) => t.id !== task.id))
+      );
+  };
 }
