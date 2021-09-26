@@ -3,10 +3,16 @@
   *ngFor="let task of mockTasksUsingObservable"
   [task]="task"
 ></app-task-item> -->
-<app-add-task (onAddTask)="addTask($event)"></app-add-task>
-<app-task-item
-  (onDeleteTask)="deleteTask(task)"
-  (onToggleTask)="toggleTask(task)"
-  *ngFor="let task of realTasks"
-  [task]="task"
-></app-task-item>
+<div class="postContainer">
+  <app-header></app-header>
+  <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+  <app-task-item
+    (onDeleteTask)="deleteTask(task)"
+    (onToggleTask)="toggleTask(task)"
+    *ngFor="let task of realTasks"
+    [task]="task"
+  ></app-task-item>
+  <app-footer></app-footer>
+</div>
+
+

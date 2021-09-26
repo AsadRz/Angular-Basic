@@ -1,0 +1,23 @@
+.div {
+    background: url('/assets/img1.jpg') no-repeat center;
+    background-size: cover;
+  /* background: #EECDA3; */
+  width: 100vw;
+  /* background: linear-gradient(to right, #EF629F, #EECDA3); */
+  height: 100vh;
+}
+
+.typeWriter {
+    /* background: red; */
+    width: 800px;
+    height: 600px;
+    /* display: grid; */
+    /* place-items: center; */
+    margin: 0 auto;
+    text-align: center;
+    transform: translate(40%, 30%);
+}
+
+h2 {
+    padding-top: 245px;
+}

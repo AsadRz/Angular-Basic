@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" class="add-form" *ngIf="showAddTask">
-  <div class="form-control">
+  <div class="add-form-control">
     <label for="text">Task</label>
     <input
       type="text"
@@ -9,7 +9,7 @@
       id="text"
     />
   </div>
-  <div class="form-control">
+  <div class="add-form-control">
     <label for="day">Day & Time</label>
     <input
       type="text"
@@ -19,7 +19,7 @@
       id="day"
     />
   </div>
-  <div class="form-control form-control-check">
+  <div class="add-form-control add-form-control-check">
     <label for="reminder">Set Reminder</label>
     <input
       type="checkbox"
@@ -30,5 +30,5 @@
     />
   </div>
 
-  <input type="submit" value="Save Task" class="btn btn-block" />
+  <input type="submit" value="Save Task" class="btn btn-info" />
 </form>
